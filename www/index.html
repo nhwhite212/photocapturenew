@@ -117,9 +117,9 @@
     function onPhotoDataSuccess(imageData) {
       // Uncomment to view the base64-encoded image data
 //        console.log(imageData);
-               document.getElementbyID("debug).innerHTML += "<p> Image Data </p>";
-               document.getElementbyID("debug).innerHTML += imageData[0:80];
-
+               document.getElementbyID("debug").innerHTML += "<p> Image Data </p>";
+               document.getElementbyID("debug").innerHTML += imageData[0:80];
+               window.alert("onPhotoDataSuccess");
                window.alert(imageData[0:80]); 
       // Get image handle
       //
@@ -137,8 +137,8 @@
 	 
 	 var base64 = window.btoa(imageData);
 //	 window.alert(base64);
-         document.getElementbyID("debug).innerHTML +="<p>base64 string</p>";
-         document.getElementbyID("debug).innerHTML +=base64;
+         document.getElementbyID("debug").innerHTML +="<p>base64 string</p>";
+         document.getElementbyID("debug").innerHTML +=base64;
         
 		
 	 $.ajax({
@@ -190,8 +190,10 @@
     //
     function capturePhoto() {
       // Take picture using device camera and retrieve image as base64-encoded string
+     alert("capturePhoto");
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        destinationType: destinationType.DATA_URL, correctOrientation : true, targetWidth: 512, targetHeight: 512,// saveToPhotoAlbum : true, sourceType: Camera.PictureSourceType.CAMERA,
+        destinationType: destinationType.DATA_URL, correctOrientation : true, targetWidth: 512, targetHeight: 512,
+        saveToPhotoAlbum : true, sourceType: Camera.PictureSourceType.CAMERA,
 		
 	})
     }
@@ -199,6 +201,7 @@
     // A button will call this function
     //
     function capturePhotoEdit() {
+      alert("capturePhotoEdit");
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
         destinationType: destinationType.FILE_URL, saveToPhotoAlbum : true,});
