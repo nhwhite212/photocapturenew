@@ -10,7 +10,7 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
-	<body>
+	<body onload="onLoad()">
 
 		<!-- Header -->
 			<section id="header">
@@ -44,18 +44,22 @@
 				</ul>
                 <script type="text/javascript" charset="utf-8">
 
-    var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value
+
 
     // Wait for device API libraries to load
     //
+    function onLoad(){
+    var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
     document.addEventListener("deviceready",onDeviceReady,false);
+      }
 
     // device APIs are available
     //
     function onDeviceReady() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
+        alert("Device is Ready");
     }
 
     // Called when a photo is successfully retrieved
@@ -114,9 +118,9 @@
       // Uncomment to view the base64-encoded image data
 //        console.log(imageData);
                document.getElementbyID("debug).innerHTML += "<p> Image Data </p>";
-               document.getElementbyID("debug).innerHTML += imageData;
+               document.getElementbyID("debug).innerHTML += imageData[0:80];
 
-//      window.alert(imageData); 
+               window.alert(imageData[0:80]); 
       // Get image handle
       //
       var smallImage = document.getElementById('smallImage');
