@@ -65,7 +65,7 @@ debug output here
 
 <p>
 </div>
-<button "onClick=capturePhoto();"> Click to take picture </button><br>
+<button onClick=capturePhoto()> Click to take picture </button>
 
 
 
