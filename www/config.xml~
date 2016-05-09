@@ -42,11 +42,6 @@
         <preference name="phonegap-version"       value="3.5.0" />
     -->
 
-<feature name="debug-server" required="true">
-   <param name="domain" value="192.168.105.222:8080"/>
-   <param name="key" value="Cameratest"/>
-</feature>
-
     <!-- Plugins -->
 
     <!-- Core plugins -->
